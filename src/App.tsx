@@ -6,7 +6,8 @@ const feeds = [
   {
     id: 'cam-living',
     name: 'リビング',
-    image: '/kitten1.png',
+    media: '/kitten1.mp4',
+    type: 'video',
     kbps: '112 KB/s',
     codec: 'H.264',
     driftClass: 'drift-1'
@@ -92,12 +93,24 @@ function App() {
       <main className="camera-section">
         <div className="video-container" onClick={() => setIsLive(!isLive)}>
           <div className="video-wrapper">
-            <img
-              key={currentFeed.id}
-              src={currentFeed.image}
-              alt={currentFeed.name}
-              className={`video-feed-pixelated ${isLive ? currentFeed.driftClass : ''}`}
-            />
+            {currentFeed.type === 'video' ? (
+              <video
+                key={currentFeed.id}
+                src={currentFeed.media}
+                className={`video-feed-pixelated ${isLive ? currentFeed.driftClass : ''}`}
+                autoPlay={isLive}
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <img
+                key={currentFeed.id}
+                src={currentFeed.media}
+                alt={currentFeed.name}
+                className={`video-feed-pixelated ${isLive ? currentFeed.driftClass : ''}`}
+              />
+            )}
           </div>
 
           {/* Utilitarian OSD */}
