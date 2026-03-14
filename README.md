@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# ネコログ (NekoLog) 🐱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+三毛猫ちゃんたちの様子をいつでもどこでも見守れる、フレンドリーなペットカメラアプリです。
 
-Currently, two official plugins are available:
+## 🌐 ライブサイト (家族用)
+家族みんながアクセスできるURLはこちらです：
+**👉 [https://nekolog-239.pages.dev](https://nekolog-239.pages.dev)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📦 プロジェクト情報
+- **GitHub**: [https://github.com/tak-git/nekolog](https://github.com/tak-git/nekolog)
+- **デプロイ先**: Cloudflare Pages
+- **ローカル場所**: `/Users/t_shimohara/Documents/Developer/ネコログ`
 
-## React Compiler
+## 🐱 カメラ一覧
+1. **カメラ1: 居間** - 母猫がソファでお休み中
+2. **カメラ2: 毛づくろい中** - 子猫がリラックス
+3. **カメラ3: のび～** - ストレッチする子猫
+4. **カメラ4: もぐもぐタイム** - お食事中の子猫
+5. **カメラ5: 廊下** - 散歩中の様子
+6. **カメラ6: 玄関** - ワンちゃんがパトロール中
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ 主な機能
+- **カメラドリフト**: 映像がゆっくり動いてライブ感を演出
+- **自動通知**: 「物音を検知」などのアラートをランダムに表示
+- **ぬくもりデザイン**: ペットアプリらしい優しいベージュ基調のUI
+- **完全日本語化**: 誰でも使いやすいインターフェース
 
-## Expanding the ESLint configuration
+## 🛠 開発者向け
+ローカルで起動する場合は、デスクトップの「ネコログ起動.command」をダブルクリックするか、以下を実行してください。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev -- --host
 ```

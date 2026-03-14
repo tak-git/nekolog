@@ -5,30 +5,30 @@ import './App.css';
 
 const feeds = [
   {
-    id: 'cam-main',
-    name: 'カメラ1: 居間',
-    image: '/cat_sleeping_sofa_1773465500059.png',
-    kbps: '142 KB/s',
+    id: 'cam-mother',
+    name: 'カメラ1: お母さん',
+    image: '/mother_calico_japanese_home_1773471714843.png',
+    kbps: '156 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-1',
-    name: 'カメラ2: 毛づくろい中',
-    image: '/kitten_grooming_floor_1773467691604.png',
+    name: 'カメラ2: 子猫(毛づくろい)',
+    image: '/kitten1_calico_grooming_1773471729272.png',
     kbps: '112 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-2',
-    name: 'カメラ3: のび～',
-    image: '/kitten_stretching_rug_1773467704678.png',
+    name: 'カメラ3: 子猫(のび～)',
+    image: '/kitten2_calico_stretching_1773471742096.png',
     kbps: '95 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-3',
-    name: 'カメラ4: もぐもぐタイム',
-    image: '/kitten_eating_bowl_closeup_1773467716976.png',
+    name: 'カメラ4: 子猫(ごはん)',
+    image: '/kitten3_calico_eating_1773471754132.png',
     kbps: '128 KB/s',
     codec: 'H.264'
   },
@@ -110,44 +110,44 @@ function App() {
     }).replace(/\//g, '-');
   };
 
-  // Enhanced subtle camera drift with slightly more movement
+  // Smoother camera drift with easeInOut for more natural movement
   const getCameraDrift = () => {
     const drifts = [
-      { // CAM1: リビング (ズーム気味)
-        scale: [1.02, 1.08, 1.03, 1.1, 1.02],
-        x: [0, -5, 2, -3, 0],
-        y: [0, -3, -6, -2, 0],
-        transition: { duration: 20, repeat: Infinity, ease: "easeInOut" as any }
+      { // CAM1: お母さん
+        scale: [1.02, 1.05, 1.02, 1.07, 1.02],
+        x: [0, -3, 2, -2, 0],
+        y: [0, -2, -4, -1, 0],
+        transition: { duration: 25, repeat: Infinity, ease: "easeInOut" as any }
       },
-      { // CAM2: 毛づくろい (ゆっくりスライド)
-        scale: [1.05, 1.05],
-        x: [-5, 5, -5],
-        y: [-2, 2, -2],
+      { // CAM2: 子猫(毛づくろい)
+        scale: [1.05, 1.08, 1.05],
+        x: [-2, 2, -2],
+        y: [-1, 1, -1],
         transition: { duration: 15, repeat: Infinity, ease: "easeInOut" as any }
       },
-      { // CAM3: のびー (縦の揺れ)
+      { // CAM3: 子猫(のび～)
         scale: [1.03, 1.06, 1.03],
         x: [0, 0],
-        y: [-8, 2, -8],
+        y: [-5, 5, -5],
+        transition: { duration: 20, repeat: Infinity, ease: "easeInOut" as any }
+      },
+      { // CAM4: 子猫(ごはん)
+        scale: [1.08, 1.12, 1.08],
+        x: [-3, 3, -3],
+        y: [-3, 3, -3],
         transition: { duration: 18, repeat: Infinity, ease: "easeInOut" as any }
       },
-      { // CAM4: ごはん (寄り)
-        scale: [1.1, 1.15, 1.1],
-        x: [-2, 2, -2],
-        y: [-2, 2, -2],
-        transition: { duration: 12, repeat: Infinity, ease: "easeInOut" as any }
-      },
       { // CAM5: 廊下
-        scale: [1.03, 1.07, 1.03],
-        x: [-10, 5, -10],
+        scale: [1.03, 1.05, 1.03],
+        x: [-5, 5, -5],
         y: [0, 0],
-        transition: { duration: 22, repeat: Infinity, ease: "easeInOut" as any }
+        transition: { duration: 30, repeat: Infinity, ease: "easeInOut" as any }
       },
       { // CAM6: 玄関
-        scale: [1.04, 1.04],
+        scale: [1.04, 1.06, 1.04],
         x: [0, 0],
-        y: [-5, 5, -5],
-        transition: { duration: 25, repeat: Infinity, ease: "easeInOut" as any }
+        y: [-3, 3, -3],
+        transition: { duration: 28, repeat: Infinity, ease: "easeInOut" as any }
       }
     ];
     return drifts[currentFeedIndex] || drifts[0];

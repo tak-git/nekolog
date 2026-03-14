@@ -20,9 +20,10 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #e0ddd5;
   color: var(--text-main);
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
-  overflow: hidden;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,48 +31,46 @@ body {
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  height: 100dvh;
   max-width: 450px;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .app-header-utilitarian {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 12px 18px;
   background-color: var(--panel-bg);
   border-bottom: 1px solid var(--border-color);
   color: var(--text-main);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--text-muted);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 11px;
 }
 
 .header-icon {
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.header-icon:hover {
-  opacity: 0.7;
 }
 
 /* Video Section */
@@ -81,12 +80,14 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ebe7e0;
-  padding: 10px;
+  padding: 8px;
+  min-height: 0; /* Important for flex children to shrink */
 }
 
 .video-container {
   position: relative;
   width: 100%;
+  max-height: 100%;
   aspect-ratio: 4/3;
   background-color: #000;
   overflow: hidden;
@@ -105,25 +106,24 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* image-rendering: pixelated; // Re-enabling slightly for that "camera" feel if too clean, but keeping it off for modern app look */
 }
 
-/* OSD Elements - Kept for realism */
+/* OSD Elements */
 .osd-digital {
   position: absolute;
   z-index: 10;
   pointer-events: none;
   color: #fff;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-  padding: 6px;
+  padding: 5px;
 }
 
-.top-left { top: 5px; left: 8px; }
-.top-right { top: 5px; right: 8px; }
-.bottom-left { bottom: 5px; left: 8px; }
-.bottom-right { bottom: 5px; right: 8px; }
+.top-left { top: 4px; left: 6px; }
+.top-right { top: 4px; right: 6px; }
+.bottom-left { bottom: 4px; left: 6px; }
+.bottom-right { bottom: 4px; right: 6px; }
 
 .text-right { text-align: right; }
 .text-red { color: #ff5252; text-shadow: 0 0 5px rgba(255, 82, 82, 0.5); }
@@ -140,24 +140,25 @@ body {
 
 /* Controls */
 .controls-section-utilitarian {
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background-color: var(--panel-bg);
   border-top: 1px solid var(--border-color);
-  padding: 15px 10px;
-  padding-bottom: 25px;
+  padding: 12px 8px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 
 .control-btn-flat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
   color: var(--text-muted);
-  padding: 10px 0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 12px;
+  padding: 8px 0;
+  transition: all 0.2s ease;
+  border-radius: 10px;
 }
 
 .control-btn-flat:active {
