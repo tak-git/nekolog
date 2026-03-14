@@ -7,28 +7,28 @@ const feeds = [
   {
     id: 'cam-mother',
     name: 'カメラ1: お母さん',
-    image: '/mother_calico_japanese_home_1773471714843.png',
+    image: '/accurate_mother_cam_1773472716266.png',
     kbps: '156 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-1',
     name: 'カメラ2: 子猫(毛づくろい)',
-    image: '/kitten1_calico_grooming_1773471729272.png',
+    image: '/accurate_kitten_grooming_1773472671096.png',
     kbps: '112 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-2',
     name: 'カメラ3: 子猫(のび～)',
-    image: '/kitten2_calico_stretching_1773471742096.png',
+    image: '/accurate_kitten_stretching_1773472687337.png',
     kbps: '95 KB/s',
     codec: 'H.264'
   },
   {
     id: 'cam-kitten-3',
     name: 'カメラ4: 子猫(ごはん)',
-    image: '/kitten3_calico_eating_1773471754132.png',
+    image: '/accurate_kitten_eating_1773472703978.png',
     kbps: '128 KB/s',
     codec: 'H.264'
   },
